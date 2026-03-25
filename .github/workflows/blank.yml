@@ -11,6 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3.5.2
+    - name: Setup Node.js
+    uses: actions/setup-node@v4
+    with:
+      node-version: '24'
+  - run: node -v
+  - run: npm ci
+  - run: npm test
 #    - name: If failed, means ok
 #      run: ./not-exist-file.sh it bloke build
     - name: Preparing Linux Environment
